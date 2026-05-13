@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Sadhana Bhat - CV</title>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Fira+Code:wght@400&display=swap" rel="stylesheet"/>
+  <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Outfit', sans-serif;
+      background: #f0f4ff;
+      color: #1e1b4b;
+      padding: 30px 16px;
+    }
+    .cv-wrapper {
+      max-width: 820px;
+      margin: 0 auto;
+      background: #fff;
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.12);
+    }
+
+    /* HEADER */
+    .cv-header {
+      background: linear-gradient(135deg, #8b5cf6, #06b6d4);
+      padding: 44px 48px 36px;
+      color: #fff;
+      display: flex;
+      align-items: center;
+      gap: 32px;
+    }
+    .cv-avatar {
+      width: 90px; height: 90px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.2);
+      border: 3px solid rgba(255,255,255,0.5);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 2.2rem; font-weight: 800;
+      flex-shrink: 0;
+    }
+    .cv-name { font-size: 2.2rem; font-weight: 800; margin-bottom: 4px; }
+    .cv-role { font-size: 1rem; opacity: 0.9; font-weight: 500; margin-bottom: 14px; }
+    .cv-contact-row {
+      display: flex; flex-wrap: wrap; gap: 16px;
+      font-size: 0.82rem; opacity: 0.92;
+    }
+    .cv-contact-row span { display: flex; align-items: center; gap: 5px; }
+
+    /* BODY */
+    .cv-body { display: grid; grid-template-columns: 1fr 2fr; }
+    .cv-sidebar {
+      background: #f8f5ff;
+      padding: 32px 28px;
+      border-right: 1px solid #ede9fe;
+    }
+    .cv-main { padding: 32px 36px; }
+
+    /* SECTION TITLES */
+    .section-title {
+      font-size: 0.7rem; font-weight: 700;
+      letter-spacing: 2px; text-transform: uppercase;
+      color: #8b5cf6;
+      border-bottom: 2px solid #ede9fe;
+      padding-bottom: 6px; margin-bottom: 16px;
+    }
+    .cv-section { margin-bottom: 28px; }
+
+    /* SKILLS */
+    .skill-item { margin-bottom: 10px; }
+    .skill-label { display: flex; justify-content: space-between; font-size: 0.83rem; font-weight: 600; margin-bottom: 4px; }
+    .skill-bar { height: 5px; background: #ede9fe; border-radius: 3px; }
+    .skill-fill { height: 100%; border-radius: 3px; background: linear-gradient(90deg, #8b5cf6, #06b6d4); }
+
+    /* TAGS */
+    .tags { display: flex; flex-wrap: wrap; gap: 6px; }
+    .tag {
+      background: #ede9fe; color: #6d28d9;
+      padding: 3px 10px; border-radius: 50px;
+      font-size: 0.75rem; font-weight: 600;
+    }
+
+    /* TIMELINE */
+    .timeline-item { margin-bottom: 22px; padding-left: 16px; border-left: 2px solid #ede9fe; position: relative; }
+    .timeline-item::before {
+      content: ''; position: absolute;
+      left: -5px; top: 5px;
+      width: 8px; height: 8px;
+      background: #8b5cf6; border-radius: 50%;
+    }
+    .tl-title { font-size: 0.95rem; font-weight: 700; color: #1e1b4b; }
+    .tl-sub { font-size: 0.8rem; color: #8b5cf6; font-weight: 600; margin-bottom: 4px; }
+    .tl-date { font-size: 0.75rem; color: #9ca3af; margin-bottom: 6px; }
+    .tl-desc { font-size: 0.82rem; color: #4b5563; line-height: 1.6; }
+
+    /* PROJECT CARD */
+    .proj-item { margin-bottom: 18px; }
+    .proj-title { font-size: 0.93rem; font-weight: 700; margin-bottom: 3px; }
+    .proj-stack { font-size: 0.75rem; color: #8b5cf6; font-weight: 600; margin-bottom: 4px; }
+    .proj-desc { font-size: 0.81rem; color: #4b5563; line-height: 1.6; }
+    .proj-status {
+      display: inline-block; margin-top: 4px;
+      padding: 2px 10px; border-radius: 50px;
+      font-size: 0.7rem; font-weight: 700;
+    }
+    .proj-status.done { background: #d1fae5; color: #059669; }
+    .proj-status.wip { background: #ffedd5; color: #ea580c; }
+
+    /* PRINT */
+    .print-btn {
+      display: block; width: fit-content;
+      margin: 20px auto 0;
+      background: linear-gradient(135deg, #8b5cf6, #06b6d4);
+      color: #fff; padding: 12px 32px;
+      border: none; border-radius: 50px;
+      font-size: 0.95rem; font-weight: 600;
+      cursor: pointer; font-family: 'Outfit', sans-serif;
+      box-shadow: 0 8px 24px rgba(139,92,246,0.4);
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .print-btn:hover { transform: translateY(-2px); box-shadow: 0 12px 30px rgba(139,92,246,0.5); }
+
+    @media print {
+      body { background: #fff; padding: 0; }
+      .cv-wrapper { box-shadow: none; border-radius: 0; }
+      .print-btn { display: none !important; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="cv-wrapper">
+
+    <!-- HEADER -->
+    <div class="cv-header">
+      <div class="cv-avatar">SB</div>
+      <div>
+        <div class="cv-name">Sadhana Bhat</div>
+        <div class="cv-role">MCA Student | Full Stack Developer & ML Engineer</div>
+        <div class="cv-contact-row">
+          <span>📧 bhatsadhana85@gmail.com</span>
+          <span>📞 +91 7204041374</span>
+          <span>📍 Ankola, Uttara Kannada, Karnataka</span>
+          <span>🐙 github.com/Sadhana0808</span>
+          <span>💼 linkedin.com/in/sadhana-bhat-32a49334b</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="cv-body">
+
+      <!-- SIDEBAR -->
+      <div class="cv-sidebar">
+
+        <div class="cv-section">
+          <div class="section-title">Technical Skills</div>
+          <div class="skill-item">
+            <div class="skill-label"><span>Python</span><span>92%</span></div>
+            <div class="skill-bar"><div class="skill-fill" style="width:92%"></div></div>
+          </div>
+          <div class="skill-item">
+            <div class="skill-label"><span>PHP</span><span>85%</span></div>
+            <div class="skill-bar"><div class="skill-fill" style="width:85%"></div></div>
+          </div>
+          <div class="skill-item">
+            <div class="skill-label"><span>HTML / CSS</span><span>90%</span></div>
+            <div class="skill-bar"><div class="skill-fill" style="width:90%"></div></div>
+          </div>
+          <div class="skill-item">
+            <div class="skill-label"><span>JavaScript</span><span>80%</span></div>
+            <div class="skill-bar"><div class="skill-fill" style="width:80%"></div></div>
+          </div>
+          <div class="skill-item">
+            <div class="skill-label"><span>Django</span><span>82%</span></div>
+            <div class="skill-bar"><div class="skill-fill" style="width:82%"></div></div>
+          </div>
+          <div class="skill-item">
+            <div class="skill-label"><span>MySQL</span><span>80%</span></div>
+            <div class="skill-bar"><div class="skill-fill" style="width:80%"></div></div>
+          </div>
+          <div class="skill-item">
+            <div class="skill-label"><span>Scikit-Learn</span><span>78%</span></div>
+            <div class="skill-bar"><div class="skill-fill" style="width:78%"></div></div>
+          </div>
+          <div class="skill-item">
+            <div class="skill-label"><span>Pandas / NumPy</span><span>85%</span></div>
+            <div class="skill-bar"><div class="skill-fill" style="width:85%"></div></div>
+          </div>
+        </div>
+
+        <div class="cv-section">
+          <div class="section-title">Tools</div>
+          <div class="tags">
+            <span class="tag">Git</span>
+            <span class="tag">VS Code</span>
+            <span class="tag">Jupyter</span>
+            <span class="tag">Postman</span>
+            <span class="tag">GitHub</span>
+            <span class="tag">XAMPP</span>
+          </div>
+        </div>
+
+        <div class="cv-section">
+          <div class="section-title">Soft Skills</div>
+          <div class="tags">
+            <span class="tag">Problem Solving</span>
+            <span class="tag">Teamwork</span>
+            <span class="tag">Communication</span>
+            <span class="tag">Self-Learning</span>
+            <span class="tag">Adaptability</span>
+          </div>
+        </div>
+
+        <div class="cv-section">
+          <div class="section-title">Languages</div>
+          <div class="tags">
+            <span class="tag">English</span>
+            <span class="tag">Kannada</span>
+            <span class="tag">Hindi</span>
+          </div>
+        </div>
+
+        <div class="cv-section">
+          <div class="section-title">Availability</div>
+          <p style="font-size:0.82rem;color:#4b5563;line-height:1.6">
+            ✅ Available for remote internships<br/>
+            ✅ Open to freelance projects<br/>
+            📍 Ankola, Karnataka, India
+          </p>
+        </div>
+
+      </div>
+
+      <!-- MAIN -->
+      <div class="cv-main">
+
+        <div class="cv-section">
+          <div class="section-title">Profile</div>
+          <p style="font-size:0.87rem;color:#4b5563;line-height:1.7">
+            I am a passionate MCA student from Ankola, Uttara Kannada, Karnataka, with a strong foundation in Full Stack Web Development and Machine Learning. I enjoy building intelligent, practical applications that solve real-world problems. Currently working on ML and Full Stack projects, with one completed e-commerce application.
+          </p>
+        </div>
+
+        <div class="cv-section">
+          <div class="section-title">Education</div>
+          <div class="timeline-item">
+            <div class="tl-title">Master of Computer Applications (MCA)</div>
+            <div class="tl-sub">Currently Pursuing</div>
+            <div class="tl-date">2024 – Present</div>
+            <div class="tl-desc">Specializing in Software Development, Machine Learning, and Full Stack technologies.</div>
+          </div>
+          <div class="timeline-item">
+            <div class="tl-title">Bachelor of Computer Applications (BCA)</div>
+            <div class="tl-sub">Completed</div>
+            <div class="tl-date">2021 – 2024</div>
+            <div class="tl-desc">Foundation in programming, databases, networking, and web development.</div>
+          </div>
+        </div>
+
+        <div class="cv-section">
+          <div class="section-title">Projects</div>
+
+          <div class="proj-item">
+            <div class="proj-title">🏥 Disease Identification & Medicine Recommendation</div>
+            <div class="proj-stack">Python · Scikit-Learn · Django · Machine Learning</div>
+            <div class="proj-desc">AI-powered system that predicts diseases based on user-provided symptoms and recommends appropriate medicines using ML classification models.</div>
+            <span class="proj-status wip">🔧 In Progress</span>
+          </div>
+
+          <div class="proj-item">
+            <div class="proj-title">🛋️ Furniture E-Commerce Website</div>
+            <div class="proj-stack">PHP · MySQL · HTML · CSS · JavaScript</div>
+            <div class="proj-desc">Fully functional e-commerce platform for furniture products with product listings, shopping cart, order management, and a secure admin panel.</div>
+            <span class="proj-status done">✅ Completed</span>
+          </div>
+
+          <div class="proj-item">
+            <div class="proj-title">🪪 Smart Ration Card Management System</div>
+            <div class="proj-stack">Django · MySQL · Full Stack</div>
+            <div class="proj-desc">Web application for digitizing ration card management — beneficiary registration, stock monitoring, and grain distribution tracking with admin dashboard.</div>
+            <span class="proj-status wip">🔧 In Progress</span>
+          </div>
+        </div>
+
+        <div class="cv-section">
+          <div class="section-title">Certifications & Learning</div>
+          <div class="timeline-item">
+            <div class="tl-title">Machine Learning & Data Science</div>
+            <div class="tl-desc">Self-learned through online platforms covering supervised/unsupervised learning, model evaluation, and deployment.</div>
+          </div>
+          <div class="timeline-item">
+            <div class="tl-title">Full Stack Web Development</div>
+            <div class="tl-desc">Hands-on experience with frontend (HTML, CSS, JS) and backend (Django, PHP, MySQL) development.</div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <button class="print-btn" onclick="window.print()">⬇️ Download as PDF (Print → Save as PDF)</button>
+
+</body>
+</html>
